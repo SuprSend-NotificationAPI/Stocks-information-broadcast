@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Alerts</title>
+  <style>
+    h1{
+       text-align: center;
+       margin-bottom: 100px;
+    }
+    body {
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: -webkit-linear-gradient(65deg, #5cebe1c9 50%, #2af3fa5a 50%);
+      min-height: 100%;
+    }
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-bottom: 30px;
+    }
+    form {
+      margin: auto;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      width: 400px;
+      padding: 30px;
+      padding-right: 40px;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      visibility: hidden;
+    }
+
+    .loading-screen.active {
+      visibility: visible;
+    }
+
+    button{
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.getElementById('notification-form');
+      var loadingScreen = document.getElementById('loading-screen');
+
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        loadingScreen.classList.add('active');
+        setTimeout(function() {
+          form.submit();
+          loadingScreen.classList.remove('active');
+        }, 2000); // Change the delay time as needed
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>Stock Alerts</h1>
+  <form id="notification-form" action="/sendnotification" method="post">
+    <div class="input-group">
+      <label for="Name">Name:</label>
+      <input type="text" id="Name" name="name">
+    </div>
+    <div class="input-group">
+      <label for="Key">Unique Code:</label>
+      <input type="text" id="Key" name="key" required>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="loading-screen" class="loading-screen">
+    <p>Loading...</p>
+  </div>
+</body>
+</html>

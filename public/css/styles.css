@@ -1,0 +1,85 @@
+html{
+  background-image: -webkit-linear-gradient(65deg, #5cebe1c9 50%, #2af3fa5a 50%);
+  min-height: 100%;
+}
+
+.background {
+  height: 100%;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+.button-container{
+  height: 500px;
+  width: 700px;
+  margin: auto;
+  text-align: center;
+  justify-self: center;
+
+}
+
+.button {
+  display: inline-block;
+  width: 200px;
+  padding: 20px 40px;
+  font-size: 24px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  margin: 10px;
+  margin-top: 200px;
+}
+
+.button:hover {
+  background-color: #20c6dccb;
+}
+
+.container3 {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.github,
+.suprsend {
+  position: relative;
+  padding-left: 35px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.github::before,
+.suprsend::before {
+  content: "";
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  top: 3px;
+}
+
+.github::before {
+  background-image: url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png');
+}
+
+.suprsend::before {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPV14L8bcSrGzlIvPFs3anNNiuhO8VaVTYi_ln326qFA&s');
+}

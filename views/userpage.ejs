@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Alert</title>
+  <style>
+    html{
+  background-image: -webkit-linear-gradient(65deg, #5cebe1c9 50%, #2af3fa5a 50%);
+  min-height: 100%;
+}
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .add-user-form {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      width: 400px;
+      padding: 30px;
+      padding-right: 40px;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .radio-group {
+      margin-bottom: 15px;
+    }
+
+    .radio-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .submit-button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Add Your Details to Subscribe</h1>
+  <div class="container">
+    <form class="add-user-form" action="/add-user" method="POST">
+      <div class="input-group">
+        <label for="user-mail">User Mail:</label>
+        <input type="email" id="user-mail" name="usermail" required>
+      </div>
+      <div class="input-group">
+        <label for="user-name">Name:</label>
+        <input type="text" id="user-name" name="username" required>
+      </div>
+      <div class="input-group">
+        <label for="user-phone">Phone:</label>
+        <input type="tel" id="user-phone" name="userphone" required>
+      </div>
+      <button type="submit" class="submit-button">Subscribe</button>
+    </form>
+  </div>
+</body>
+</html>
