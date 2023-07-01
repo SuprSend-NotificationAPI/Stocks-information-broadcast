@@ -40,6 +40,10 @@ app.get("/broadcastinput",(req,res)=>{
   res.render("inputkey");
 })
 
+app.get("/removeuser",(req,res)=>{
+  res.render("inputuser");
+})
+
 app.post("/add-user",(req,res)=>{
     const{usermail,username,userphone} = req.body;
     const newUser = new User({
@@ -47,23 +51,6 @@ app.post("/add-user",(req,res)=>{
         name : username,
         phone : userphone
     })
-    User.findOne({username: newUser.username })
-   .then(existingUser => {
-    if (existingUser) {
-      return res.send('<script>alert("Sorry, but the user already exists Please try again with different user name"); window.location.href = "/Add-Users";</script>');
-    } else {
-      newUser.save()
-        .then(savedUser => {
-           console.log("user saved");
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-  })
-  .catch(err => {
-    console.log(err);
-  });
 
   const distinct_id = usermail; 
   const user = supr_client.user.get_instance(distinct_id)
@@ -158,7 +145,7 @@ app.post("/sendnotification", async (req, res) => {
       }
       }
     }  
-    const inst = new SubscriberListBroadcast(broadcast_body, brand_id="stockbroadcast");
+    const inst = new SubscriberListBroadcast(broadcast_body);
     const data = supr_client.subscriber_lists.broadcast(inst);
     data.then((res) => console.log(res)).catch((err) => console.log(err));
     res.render("notificationsent");
@@ -167,6 +154,16 @@ app.post("/sendnotification", async (req, res) => {
   }
 }
 });
+
+app.post("/unsubscribe",(req,res)=>{
+  const name = req.body.name;
+  const data = supr_client.subscriber_lists.remove("stocksubscribers", [
+     name
+  ]);
+  
+  data.then((res) => console.log(res)).catch((err) => console.log(err));
+  res.redirect("/");
+})
 
 app.listen(3000,()=>{
     console.log("server started on port 3000");

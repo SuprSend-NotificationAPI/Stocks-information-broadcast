@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Alerts</title>
+  <style>
+    h1{
+       text-align: center;
+       margin-bottom: 100px;
+    }
+    body {
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: -webkit-linear-gradient(65deg, #5cebe1c9 50%, #2af3fa5a 50%);
+      min-height: 100%;
+    }
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-bottom: 30px;
+    }
+    form {
+      margin: auto;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      width: 400px;
+      padding: 30px;
+      padding-right: 40px;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    button{
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  </style>
+ 
+</head>
+<body>
+  <h1>Unsubscrbe the mail service</h1>
+  <form id="notification-form" action="/unsubscribe" method="post">
+    <div class="input-group">
+      <label for="Name">Enter your distinct id:</label>
+      <input type="email" id="Name" name="name">
+    </div>
+    <button type="submit">Unsubscrbe</button>
+  </form>
+
+</body>
+</html>
