@@ -76,7 +76,7 @@ app.post("/sendnotification", async (req, res) => {
   else{
   const request = require('request');
   const getData = (symbol) =>{ 
-    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&apikey=${akey}`;
+    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${akey}`;
     return new Promise((resolve, reject) => {
       request.get({
         url: url,
@@ -113,35 +113,35 @@ app.post("/sendnotification", async (req, res) => {
         'Close': data1['4. close'],
         'High': data1['2. high'],
         'Low': data1['3. low'],
-        'Split Coefficient': data1['8. split coefficient']
+        'Split Coefficient': data1['5. volume']
       },
       'v2': {
         'Open': data2['1. open'],
         'Close': data2['4. close'],
         'High': data2['2. high'],
         'Low': data2['3. low'],
-        'Split Coefficient': data2['8. split coefficient']
+        'Split Coefficient': data2['5. volume']
       },
       'v3': {
         'Open': data3['1. open'],
         'Close': data3['4. close'],
         'High': data3['2. high'],
         'Low': data3['3. low'],
-        'Split Coefficient': data3['8. split coefficient']
+        'Split Coefficient': data3['5. volume']
       },
       'v4': {
         'Open': data4['1. open'],
         'Close': data4['4. close'],
         'High': data4['2. high'],
         'Low': data4['3. low'],
-        'Split Coefficient': data4['8. split coefficient']
+        'Split Coefficient': data4['5. volume']
       },
       'v5': {
         'Open': data5['1. open'],
         'Close': data5['4. close'],
         'High': data5['2. high'],
         'Low': data5['3. low'],
-        'Split Coefficient': data5['8. split coefficient']
+        'Split Coefficient': data5['5. volume']
       }
       }
     }  
